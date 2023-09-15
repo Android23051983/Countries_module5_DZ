@@ -150,6 +150,8 @@ namespace Countries_module5_DZ
             {
                 DataClasses1DataContext db = new DataClasses1DataContext();
                 var avgSqareArea = db.Table1.Where(c => c.WorldPart == "Азия").Select(c => c.SquareArea).Average();
+                var queryResults = db.Table1.Where(c => c.WorldPart == "Азия").Distinct();
+                dataGrid2.ItemsSource = queryResults.ToList();
                 number3_1.Text = avgSqareArea.ToString();
             }
         }
